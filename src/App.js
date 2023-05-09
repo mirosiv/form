@@ -218,8 +218,12 @@ const App = () =>{
           </select>
         </div>
       </div>
-      <form>
+      <div>
         <div className={startDayError !== "" || startTimeError !== "" || endDayError !== "" || endTimeError !== "" ? "pick error" : "pick"}>
+          <div>
+              <div className="text_inp">
+                  Выберите дату и время начала брони
+              </div>
               <div className="error_item">
                 {startDayError}
                 <input value={startDay} type="date" min={dateBlockStart} onChange={(e) => setStartDay(e.target.value)} className={startDayError === "" ? "input-css" : "input-css error"} />
@@ -227,6 +231,11 @@ const App = () =>{
               <div className="error_item">
                 {startTimeError}
                 <input value={startTime} type="time" onChange={(e) =>setStartTime(e.target.value)} className={startTimeError === "" ? "input-css" : "input-css error"} />
+              </div>
+          </div>
+          <div>
+              <div className="text_inp">
+                  Выберите дату и время окончания брони
               </div>
               <div className="error_item">
                 {endDayError}
@@ -236,6 +245,7 @@ const App = () =>{
                 {endTimeError}
                 <input value={endTime} type="time" onChange={(e) => setEndTime(e.target.value)} className={endTimeError === "" ? "input-css" : "input-css error"} />
               </div>
+          </div>
         </div>
         <div className="text">
           <textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Введите комментарий к брони"/>
@@ -265,7 +275,7 @@ const App = () =>{
             Очистить
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
